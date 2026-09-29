@@ -1,104 +1,24 @@
-<h1 align="center">
-  Quickshare
-</h1>
-<p align="center">
-  Quick and simple file sharing between different devices.
-  (
-    <a href="https://github.com/ihexxa/quickshare/blob/main/docs/screenshots.md">Screenshots</a>&nbsp;|&nbsp;
-    <a href="https://github.com/ihexxa/quickshare/blob/main/docs/imgs/v0.9.1/quickshare_1920.gif">Demo</a>
-  )
-</p>
-<p align="center">
-  <a href="https://github.com/ihexxa/quickshare/actions">
-    <img src="https://github.com/ihexxa/quickshare/actions/workflows/ci_build.yml/badge.svg" />
-  </a>
-  <a href="https://github.com/ihexxa/quickshare/actions">
-    <img src="https://github.com/ihexxa/quickshare/actions/workflows/cd_docker.yml/badge.svg" />
-  </a>
-  <a href="https://github.com/ihexxa/quickshare/actions">
-    <img src="https://github.com/ihexxa/quickshare/actions/workflows/cd_github_binary.yml/badge.svg" />
-  </a>
-  <a href="https://goreportcard.com/report/github.com/ihexxa/quickshare">
-    <img src="https://goreportcard.com/badge/github.com/ihexxa/quickshare" />
-  </a>
-<p>
+# quickshare
 
-<image src="./docs/imgs/v0.11.0/screenshot.png" title="preview">
+本仓库是「quickshare」的安卓版本获取入口，附使用资料索引。
 
+## 安装文件资源（夸克网盘）
 
-English | [简体中文](./docs/README_zh-cn.md)
+> **quickshare 安装文件资源（夸克网盘）**：[https://pan.quark.cn/s/103fce72bbfd](https://pan.quark.cn/s/103fce72bbfd)
 
-> Quickshare is still under active development, please keep in mind that full backward compatibility is not guaranteed.
+## 官方项目
 
-## Features
+- 上游项目：[ihexxa/quickshare](https://github.com/ihexxa/quickshare)
 
-- File Management
-  - Support uploading, downloading, creating, deleting and moving files and folders
-  - Support fuzzy searching files and folders in seconds
-  - Resumable uploading and downloading
-  - Manage files and folders in browser
-  - Share directories to others, including anonymous
-  - Scan QR codes to visit sharing folders
-  - Upload hundreds of files at once
-  - Steaming uploading: make it work behind CDN or reverse proxy
-  - Files can also be managed from OS
-- User Management
-  - Support multiple users
-  - Each user has a role (user/admin)
-  - User home directory
-  - Per-user download & upload speed limiting
-  - Per-user space quota
-- MISC
-  - Adaptive UI
-  - I18n support
-  - Wallpaper customization
-  - Cross-platform: support Linux, Mac and Windows
+## 更多资料
 
-## Quick Start
+- [下载与安装教程](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/quickshare/%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)
+- [与电脑和iPhone互传的方法](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/quickshare/%E4%B8%8E%E7%94%B5%E8%84%91%E5%92%8CiPhone%E4%BA%92%E4%BC%A0%E7%9A%84%E6%96%B9%E6%B3%95.md)
+- [可见范围与隐私设置](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/quickshare/%E5%8F%AF%E8%A7%81%E8%8C%83%E5%9B%B4%E4%B8%8E%E9%9A%90%E7%A7%81%E8%AE%BE%E7%BD%AE.md)
+- [手机互传文件使用方法](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/quickshare/%E6%89%8B%E6%9C%BA%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.md)
+- [搜不到设备或传不动的排查](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/quickshare/%E6%90%9C%E4%B8%8D%E5%88%B0%E8%AE%BE%E5%A4%87%E6%88%96%E4%BC%A0%E4%B8%8D%E5%8A%A8%E7%9A%84%E6%8E%92%E6%9F%A5.md)
+- [全部软件目录](https://github.com/alipymanbu/Android/blob/master/%E5%85%A8%E9%83%A8%E8%BD%AF%E4%BB%B6%E7%9B%AE%E5%BD%95.md)
 
-### Run in Docker (Recommended)
+---
 
-Following will start a `quickshare` docker and listen to `8686` port.
-
-Then you can open `http://127.0.0.1:8686` and log in with user name `qs` and password `1234`:
-
-```
-docker run \
---name quickshare \
--d -p 8686:8686 \
--v `pwd`/quickshare/root:/quickshare/root \
--e DEFAULTADMIN=qs \
--e DEFAULTADMINPWD=1234 \
-hexxa/quickshare
-```
-
-- `DEFAULTADMIN` is the default user name
-- `DEFAULTADMINPWD` is the default user password
-- `/quickshare/root` is where the Quickshare stores files and directories.
-- Please refer to [this doc](./docs/doc.md) if you want to manage files and folders from OS.
-
-### Run from source code
-
-Before start, please confirm that Go/Golang (>=1.17), Node.js and Yarn are installed on your machine.
-
-```
-# clone this repo
-git clone git@github.com:ihexxa/quickshare.git
-
-# go to repo's folder
-cd quickshare
-
-DEFAULTADMIN=qs DEFAULTADMINPWD=1234 yarn start
-```
-
-OK! Open `http://127.0.0.1:8686` in browser, and log in with user name `qs` and password `1234`.
-
-### Run executable file
-
-- **Downloading**: Download last distribution(s) in [Release Page](https://github.com/ihexxa/quickshare/releases).
-- **Unzipping**: Unzip it and run following command `DEFAULTADMIN=qs DEFAULTADMINPWD=1234 ./quickshare`. (You may update its execution permission: e.g. run `chmod u+x quickshare`)
-- **Accessing**: At last, open `http://127.0.0.1:8686` in browser, and log in with user name `qs` and password `1234`.
-
-### FAQ
-
-Coming soon.
+> 本仓库由上游项目 fork 而来，原始说明见[上游仓库](https://github.com/ihexxa/quickshare)。
